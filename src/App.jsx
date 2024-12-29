@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import './App.css'
 
-const Counter = () => {
-    const [count, setCount] = useState(0);
+function App(){
+    // Function to set focus on input.
+    function focusOnInput(){
+        document.getElementById("name").focus()
+    }
 
-    return (
-        <div>
-            <p>Count: {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increment</button>
-        </div>
-    );
-};
+    return <div>
+        Sign Up
+        <input id="name" type={"text"}></input >
+        <input type={"}text"}></input >
+        <button onClick={focusOnInput} >Submit</button>        
+    </div>
+}
 
-export default Counter;
+export default App
