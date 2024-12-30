@@ -1,21 +1,39 @@
+import { useState } from 'react'
 import './App.css'
-import { useRef, useState } from 'react';
-function App(){
-    // Function to set focus on input.
 
-    const inputRef = useRef();
-    
-    function focusOnInput(){
-        // document.getElementById("name");
-        inputRef.current.focus();
-    }
-
-    return <div>
-        Sign Up
-        <input ref={inputRef} id="name" type={"text"}></input >
-        <input type={"}text"}></input >
-        <button onClick={focusOnInput} >Submit</button>        
-    </div>
+// Rolling up the state ( Not Optimal )
+function App() {
+  return <div>
+    <LightBulb />
+  </div>
 }
 
-export default App 
+function LightBulb() {
+  const [bulbOn, setBulbOn] = useState(true)
+
+  return <div>
+    <BulbState bulbOn={bulbOn} />
+    <ToggleBulbState bulbOn={bulbOn} setBulbOn={setBulbOn} />
+  </div>
+}
+
+function BulbState({bulbOn}) {
+  return <div>
+    {bulbOn ? "Bulb on" : "Bulb off"}
+  </div>
+}
+
+function ToggleBulbState({bulbOn, setBulbOn}) {
+
+  function toggle() {
+    // setBulbOn(currentState => !currentState)
+    setBulbOn(!bulbOn)
+    
+  }
+
+  return <div>
+    <button onClick={toggle}>Toggle the bulb</button>
+  </div>
+}
+
+export default App
